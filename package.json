@@ -1,0 +1,25 @@
+{
+  "name": "css-unit",
+  "version": "0.0.0",
+  "description": "analize CSS values and units.",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/morishitter/css-unit.git"
+  },
+  "keywords": [
+    "css",
+    "unit",
+    "analize",
+    "statistic"
+  ],
+  "author": "Masaaki Morishita",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/morishitter/css-unit/issues"
+  },
+  "homepage": "https://github.com/morishitter/css-unit"
+}
