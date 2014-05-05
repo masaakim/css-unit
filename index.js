@@ -24,36 +24,38 @@ module.exports.is = function(str) {
 
 module.exports.stats = function(css) {
   var ast = parse(css);
-  ast = ast.obj.stylesheet;
-  var num;
-  var units = [];
+  ast = ast.stylesheet;
+  var retNum = 0;
+  var retUnits = [];
 
-  ast.rules.forEach(function visit(rule)) {
+  ast.rules.forEach(function visit(rule) {
     if (rule.rules) rule.rules.forEach(visit);
 
     if (!rule.selectors) return;
 
     rule.declarations.forEach(function(declaration) {
       if (declaration.value.match(regexp)) {
-        num = declaration.value.match(/\d+/);
-        num = +num;
+        var decNum = declaration.value.match(/\d+/);
+        decNum = +decNum;
+        retNum++;
 
-        declaration.num = num;
-        declaration.unit = declaration.value.match(/\D+/);
-
-        if (!units.indexOf(declaration.value.match(/\D+/)) && num !== 0) {
-          units.push(declaration.value);
+        declaration.num = decNum;
+        if (declaration.value.match(/\D+/)) {
+          declaration.unit = '' + declaration.value.match(/\D+/);
+        } else {
+          declaration.unit = 'none';
         }
-        if (!units.indexOf(declaration.value.match(/\D+/)) && num === 0) {
-          units.push('none');
+
+        if (retUnits.indexOf(declaration.unit) === -1) {
+          retUnits.push(declaration.unit);
         }
       }
     });
-  }
+  });
 
   return {
-    num: num,
-    units: units,
+    num: retNum,
+    units: retUnits,
     rules: ast.rules
   };
 };
