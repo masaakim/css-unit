@@ -1,4 +1,4 @@
-# css-unit
+# css-unit [![Build Status](https://travis-ci.org/morishitter/css-unit.svg)](https://travis-ci.org/morishitter/css-unit)
 
 Analize CSS values and units.
 
