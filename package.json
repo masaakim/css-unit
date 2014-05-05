@@ -21,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/morishitter/css-unit/issues"
   },
-  "homepage": "https://github.com/morishitter/css-unit"
+  "homepage": "https://github.com/morishitter/css-unit",
+  "dependencies": {
+    "css-parse": "^1.7.0"
+  },
+  "devDependencies": {
+    "tap": "^0.4.9",
+    "tape": "^2.12.3"
+  }
 }
