@@ -1,5 +1,5 @@
 
-var unit = require('./');
+var unit = require('../');
 var test = require('tape');
 
 var value = '50px';
