@@ -28,8 +28,7 @@ unit.stats(css);
     [ { type: 'rule',
         selectors: [ '.site-nav > li:hover .dropdown' ],
         declarations:
-        [ { type: 'declaration', property: 'position', value: 'absolute' },
-          { type: 'declaration',
+        [ { type: 'declaration',
             property: 'top',
             value: '37px',
             num: 37,
