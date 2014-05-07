@@ -1,9 +1,11 @@
 
-var unit = require('./');
+var unit = require('../');
 
 unit.rm('50px'); // '50'
 unit.is('50px'); // 'px'
 unit.stats('.site-nav > li:hover .dropdown{position:absolute;top:37px;left:0;}');
+var util = require('util')
+console.log(util.inspect(unit.stats('.site-nav > li:hover .dropdown{position:absolute;top:37px;left:0;}')));
 // {
 //   num: 2,
 //   units: ['px', 'none'],
