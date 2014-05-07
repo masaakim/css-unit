@@ -1,7 +1,7 @@
 {
   "name": "css-unit",
-  "version": "0.0.1",
-  "description": "analize CSS values and units.",
+  "version": "0.0.2",
+  "description": "Analize CSS values and units",
   "main": "index.js",
   "scripts": {
     "test": "tape test/test.js"
