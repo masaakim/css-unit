@@ -27,6 +27,7 @@ module.exports.stats = function(css) {
   ast = ast.stylesheet;
   var retNum = 0;
   var retUnits = [];
+  var retRules = [];
 
   ast.rules.forEach(function visit(rule) {
     if (rule.rules) rule.rules.forEach(visit);
@@ -49,13 +50,16 @@ module.exports.stats = function(css) {
         if (retUnits.indexOf(declaration.unit) === -1) {
           retUnits.push(declaration.unit);
         }
+
+        retRules.push(rule);
       }
+
     });
   });
 
   return {
     num: retNum,
     units: retUnits,
-    rules: ast.rules
+    rules: retRules
   };
 };
