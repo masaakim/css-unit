@@ -1,0 +1,51 @@
+.px {
+  margin: 20px;
+}
+
+.ex {
+  margin: -2ex;
+}
+
+.em {
+  margin: .5em;
+}
+
+.cm {
+  margin: 20cm;
+}
+
+.mm {
+  margin: 20mm;
+}
+
+.in {
+  margin: 2.2in;
+}
+
+.pt {
+  margin: 20pt;
+}
+
+.pc {
+  margin: 20pc;
+}
+
+.vw {
+  margin: 20vw;
+}
+
+.vh {
+  margin: 20vh;
+}
+
+.vmin {
+  margin: 20vmin;
+}
+
+.percent {
+  margin: 20%;
+}
+
+.none {
+  margin: 0;
+}

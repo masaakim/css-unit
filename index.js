@@ -24,12 +24,12 @@ module.exports.is = function(str) {
 
 module.exports.stats = function(css) {
   var ast = parse(css);
-  ast = ast.stylesheet;
+
   var retNum = 0;
   var retUnits = [];
   var retRules = [];
 
-  ast.rules.forEach(function visit(rule) {
+  ast.stylesheet.rules.forEach(function visit(rule) {
     if (rule.rules) rule.rules.forEach(visit);
 
     if (!rule.selectors) return;
@@ -42,13 +42,13 @@ module.exports.stats = function(css) {
 
         declaration.num = decNum;
         if (declaration.value.match(/\D+/)) {
-          declaration.unit = '' + declaration.value.match(/\D+/);
+          declaration.unit = '' + declaration.value.match(/\D\D+|%/);
         } else {
           declaration.unit = 'none';
         }
 
         if (retUnits.indexOf(declaration.unit) === -1) {
-          retUnits.push(declaration.unit);
+         retUnits.push(declaration.unit);
         }
 
         retRules.push(rule);

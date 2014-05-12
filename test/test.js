@@ -1,9 +1,14 @@
 
+var fs = require('fs');
 var unit = require('../');
-var test = require('tape');
+var test = require('colored-tape');
+
+function fixture (name) {
+  return fs.readFileSync('test/fixtures/' + name + '.css', 'utf-8').trim();
+}
 
 var value = '50px';
-var css = '.site-nav > li:hover .dropdown{position:absolute;top:37px;left:0;}';
+var css = fixture('units');
 
 test('unit.is', function(t) {
   var result = 'px';
@@ -26,8 +31,16 @@ test('unit.rm', function(t) {
 test('unit.stats', function(t) {
   var stats = unit.stats(css);
 
-  t.equal(2, stats.num, 'stats.num');
-  t.same(['px', 'none'], stats.units, 'stats.units');
+  var result = stats.units;
+  var expected  = [
+    'px', 'ex', 'em',
+    'cm', 'mm', 'in', 'pt', 'pc',
+    'vw', 'vh', 'vmin',
+    '%', 'none'
+  ];
+
+  t.equal(13, stats.num, 'stats.num');
+  t.same(result, expected, 'stats.units');
 
   t.end();
 });

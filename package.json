@@ -4,7 +4,7 @@
   "description": "Analize CSS values and units",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/test.js"
+    "test": "colored-tape test/test.js"
   },
   "repository": {
     "type": "git",
