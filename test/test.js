@@ -33,13 +33,13 @@ test('unit.stats', function(t) {
 
   var result = stats.units;
   var expected  = [
-    'px', 'ex', 'em',
+    'px', 'ex', 'em', 'rem',
     'cm', 'mm', 'in', 'pt', 'pc',
     'vw', 'vh', 'vmin',
     '%', 'none'
   ];
 
-  t.equal(13, stats.num, 'stats.num');
+  t.equal(14, stats.num, 'stats.num');
   t.same(result, expected, 'stats.units');
 
   t.end();
